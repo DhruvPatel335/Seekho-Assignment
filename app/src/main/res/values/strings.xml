@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Seekho Assignment</string>
+    <string name="anime_poster">Anime Poster</string>
+    <string name="ratings">Ratings:</string>
 </resources>
