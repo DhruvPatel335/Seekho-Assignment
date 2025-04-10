@@ -6,4 +6,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="synopsis">Synopsis</string>
     <string name="at">%1$s at %2$s (%3$s)</string>
+    <string name="genres">Genres:</string>
+    <string name="broadcast">Broadcast:</string>
+    <string name="episodes">Episodes:</string>
+    <string name="ratings_">Ratings:</string>
 </resources>

@@ -13,6 +13,7 @@ import com.seekho.assignment.R
 import com.seekho.assignment.constants.Constants.ANIME_ID
 import com.seekho.assignment.databinding.FragmentAnimeDetailBinding
 import com.seekho.assignment.model.AnimeDetailsData
+import com.seekho.assignment.model.Trailer
 import com.seekho.assignment.viewmodel.AnimeDetailsViewModel
 import kotlinx.coroutines.launch
 
@@ -52,18 +53,30 @@ class AnimeDetailFragment : Fragment() {
     }
 
     private fun updateViews(data: AnimeDetailsData?) {
-        Glide.with(requireContext()).load(data?.images?.jpg?.imageUrl).into(binding.ivAnimePoster)
-        binding.tvTitle.text = data?.title
-        binding.tvSynopsis.text = data?.synopsis
-        binding.tvEpisodes.text = data?.episodes.toString()
-        val genreNames = data?.genres?.mapNotNull { it.name }?.joinToString(", ")
+        if (data?.trailer != Trailer()) {
+            binding.trailerWebView.settings.javaScriptEnabled = true
+            val video =
+                "<iframe width=\"100%\" height=\"100%\" src=${data!!.trailer!!.embedUrl} title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+            binding.trailerWebView.loadData(video, "text/html", "utf-8")
+            binding.trailerWebView.visibility = View.VISIBLE
+            binding.ivAnimePoster.visibility = View.GONE
+        } else {
+            Glide.with(requireContext()).load(data.images?.jpg?.imageUrl)
+                .into(binding.ivAnimePoster)
+            binding.trailerWebView.visibility = View.GONE
+            binding.ivAnimePoster.visibility = View.VISIBLE
+        }
+        binding.tvTitle.text = data.title
+        binding.tvSynopsis.text = data.synopsis
+        binding.tvEpisodes.text = data.episodes.toString()
+        val genreNames = data.genres.mapNotNull { it.name }.joinToString(", ")
         binding.tvGenres.text = genreNames
-        binding.tvRatings.text = data?.rating
+        binding.tvRatings.text = data.rating
         binding.tvCast.text = getString(
             R.string.at,
-            data?.broadcast?.day,
-            data?.broadcast?.time,
-            data?.broadcast?.timezone
+            data.broadcast?.day,
+            data.broadcast?.time,
+            data.broadcast?.timezone
         )
 
     }

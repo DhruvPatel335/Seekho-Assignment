@@ -1,75 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/ivAnimePoster"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:scaleType="fitCenter"
         android:contentDescription="@string/anime_poster"
+        android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintTop_toBottomOf="@+id/ivAnimePoster"
         android:layout_margin="15dp"
+        android:text=""
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        android:textStyle="bold"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAnimePoster" />
 
     <TextView
         android:id="@+id/tvEpisodeHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No. of episodes:"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         android:layout_marginTop="10dp"
+        android:text="No. of episodes:"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0"
-        android:textStyle="bold"/>
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
     <TextView
         android:id="@+id/tvTotalEpisodes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintTop_toBottomOf="@+id/ivAnimePoster"
-        android:textSize="16sp"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@id/tvEpisodeHeader"
-        app:layout_constraintTop_toTopOf="@id/tvEpisodeHeader"
+        android:text=""
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0" />
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/tvEpisodeHeader"
+        app:layout_constraintTop_toBottomOf="@+id/ivAnimePoster"
+        app:layout_constraintTop_toTopOf="@id/tvEpisodeHeader" />
 
     <TextView
         android:id="@+id/tvRatingsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ratings"
-        app:layout_constraintTop_toBottomOf="@+id/tvEpisodeHeader"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@id/tvTitle"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0" />
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvEpisodeHeader" />
+
     <TextView
         android:id="@+id/tvRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintTop_toBottomOf="@+id/ivAnimePoster"
-        android:textSize="16sp"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@id/tvRatingsHeader"
-        app:layout_constraintTop_toTopOf="@id/tvRatingsHeader"
+        android:text=""
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0" />
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/tvRatingsHeader"
+        app:layout_constraintTop_toBottomOf="@+id/ivAnimePoster"
+        app:layout_constraintTop_toTopOf="@id/tvRatingsHeader" />
 </androidx.constraintlayout.widget.ConstraintLayout>

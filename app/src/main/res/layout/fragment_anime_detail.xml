@@ -32,6 +32,14 @@
                 app:layout_constraintBottom_toTopOf="@id/guidelineHorizontal35"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
+            <WebView
+                android:id="@+id/trailerWebView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/guidelineHorizontal35"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineHorizontal35"
                 android:layout_width="wrap_content"
@@ -45,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:text="@string/synopsis"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal35" />
 
@@ -66,7 +74,7 @@
                 android:id="@+id/tvGenresHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Genres: "
+                android:text="@string/genres"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tvSynopsisHeader"
@@ -86,7 +94,7 @@
                 android:id="@+id/tvCastHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Broadcast: "
+                android:text="@string/broadcast"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tvSynopsisHeader"
@@ -106,7 +114,7 @@
                 android:id="@+id/tvEpisodesHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Episodes: "
+                android:text="@string/episodes"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tvCastHeader"
@@ -126,7 +134,7 @@
                 android:id="@+id/tvRatingsHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ratings: "
+                android:text="@string/ratings_"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tvEpisodesHeader"
