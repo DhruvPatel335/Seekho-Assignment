@@ -11,4 +11,5 @@ data class AnimeData(
     @SerializedName("rating") var rating: String? = null,
     @SerializedName("synopsis") var synopsis: String? = null,
     @SerializedName("explicit_genres") var explicitGenres: ArrayList<String> = arrayListOf(),
+    @SerializedName("images") var images: Images? = Images()
 )

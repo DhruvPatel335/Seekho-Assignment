@@ -37,7 +37,7 @@ class AnimeListAdapter : RecyclerView.Adapter<AnimeListAdapter.ViewHolder>() {
         holder.animeTitle.text = item.title
         holder.ratings.text = item.rating
         holder.numberOfEpisodes.text = item.episodes.toString()
-        Glide.with(holder.itemView.context).load(item.url).into(holder.poster)
+        Glide.with(holder.itemView.context).load(item.images?.jpg?.imageUrl).into(holder.poster)
     }
 
     private val diffUtil = object : DiffUtil.ItemCallback<AnimeData>() {
