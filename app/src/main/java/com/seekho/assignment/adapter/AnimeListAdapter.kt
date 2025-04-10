@@ -13,13 +13,24 @@ import com.seekho.assignment.R
 import com.seekho.assignment.model.AnimeData
 import com.seekho.assignment.model.AnimeLists
 
-class AnimeListAdapter : RecyclerView.Adapter<AnimeListAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class AnimeListAdapter(private val clickListener: OnAnimeClickListener) :
+    RecyclerView.Adapter<AnimeListAdapter.ViewHolder>() {
+
+    interface OnAnimeClickListener {
+        fun onAnimeClick(animeData: AnimeData)
+    }
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val animeTitle: TextView = itemView.findViewById(R.id.tvTitle)
         val numberOfEpisodes: TextView = itemView.findViewById(R.id.tvTotalEpisodes)
         val ratings: TextView = itemView.findViewById(R.id.tvRating)
         val poster: ImageView = itemView.findViewById(R.id.ivAnimePoster)
+        fun bindClickListener(animeData: AnimeData) {
+            itemView.setOnClickListener {
+                clickListener.onAnimeClick(animeData)
+            }
 
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,6 +49,7 @@ class AnimeListAdapter : RecyclerView.Adapter<AnimeListAdapter.ViewHolder>() {
         holder.ratings.text = item.rating
         holder.numberOfEpisodes.text = item.episodes.toString()
         Glide.with(holder.itemView.context).load(item.images?.jpg?.imageUrl).into(holder.poster)
+        holder.bindClickListener(item)
     }
 
     private val diffUtil = object : DiffUtil.ItemCallback<AnimeData>() {
