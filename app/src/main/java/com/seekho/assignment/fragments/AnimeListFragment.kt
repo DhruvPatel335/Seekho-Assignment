@@ -66,6 +66,7 @@ class AnimeListFragment : Fragment(), AnimeListAdapter.OnAnimeClickListener {
 
     override fun onAnimeClick(animeData: AnimeData) {
         val bundle = bundleOf()
+        Log.d("AnimeID", animeData.malId.toString())
         bundle.putInt("AnimeId", animeData.malId!!)
         findNavController().navigate(R.id.action_animeListFragment_to_animeDetailFragment, bundle)
     }
