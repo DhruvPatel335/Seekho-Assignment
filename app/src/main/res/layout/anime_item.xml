@@ -8,7 +8,6 @@
         android:id="@+id/ivAnimePoster"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@color/cardview_dark_background"
         android:contentDescription="@string/anime_poster"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView

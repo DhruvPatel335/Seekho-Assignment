@@ -13,7 +13,6 @@ import com.seekho.assignment.viewmodel.AnimeListViewModel
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: AnimeListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,17 +26,8 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.mainFragmentContainer) as NavHostFragment
         val navController = navHostFragment.navController
-        viewModel = ViewModelProvider.create(this)[AnimeListViewModel::class.java]
 
-        lifecycleScope.launch {
-            viewModel.animeData.collect{
-                    Log.e("APICall", it.toString())
-            }
-        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.fetchAnimeData()
-    }
+
 }
