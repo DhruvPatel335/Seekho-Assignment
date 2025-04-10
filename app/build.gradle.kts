@@ -49,4 +49,6 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.logging.interceptor)
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 }

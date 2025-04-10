@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
 import com.seekho.assignment.viewmodel.AnimeListViewModel
 import kotlinx.coroutines.launch
 
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.mainFragmentContainer) as NavHostFragment
+        val navController = navHostFragment.navController
         viewModel = ViewModelProvider.create(this)[AnimeListViewModel::class.java]
 
         lifecycleScope.launch {
