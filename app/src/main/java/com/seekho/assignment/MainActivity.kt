@@ -6,11 +6,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.seekho.assignment.network.RetrofitService
-import com.seekho.assignment.network.RetrofitUtils
-import kotlinx.coroutines.coroutineScope
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.seekho.assignment.viewmodel.AnimeListViewModel
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var viewModel: AnimeListViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,5 +23,17 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        viewModel = ViewModelProvider.create(this)[AnimeListViewModel::class.java]
+
+        lifecycleScope.launch {
+            viewModel.animeData.collect{
+                    Log.e("APICall", it.toString())
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchAnimeData()
     }
 }

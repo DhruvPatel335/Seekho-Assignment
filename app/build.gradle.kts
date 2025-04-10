@@ -48,4 +48,5 @@ dependencies {
     implementation (libs.converter.gson)
     implementation (libs.retrofit)
     implementation (libs.logging.interceptor)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
 }
