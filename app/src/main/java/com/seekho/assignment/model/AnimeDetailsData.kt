@@ -13,5 +13,5 @@ data class AnimeDetailsData(
     @SerializedName("rating") var rating: String? = null,
     @SerializedName("synopsis") var synopsis: String? = null,
     @SerializedName("genres") var genres: ArrayList<Genres> = arrayListOf(),
-
+    @SerializedName("broadcast") var broadcast: Broadcast? = Broadcast()
 )
