@@ -17,9 +17,9 @@ class AnimeDetailsViewModel:ViewModel() {
     val animeDetails:StateFlow<AnimeDetails>
         get() = _animeDetails
 
-    fun fetchAnimeDetails(){
+    fun fetchAnimeDetails(animeID: Int?) {
         viewModelScope.launch{
-            repository.fetchAnimeDetails().collect{
+            repository.fetchAnimeDetails(animeID).collect{
                 _animeDetails.emit(it)
             }
         }

@@ -8,13 +8,13 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 
 interface AnimeDetailsRepository{
-    suspend fun fetchAnimeDetails(): Flow<AnimeDetails>
+    suspend fun fetchAnimeDetails(animeID: Int?): Flow<AnimeDetails>
 }
 
 class AnimeDetailsRepositoryImpl(private val apiService: ApiService):AnimeDetailsRepository {
-    override suspend fun fetchAnimeDetails(): Flow<AnimeDetails> {
+    override suspend fun fetchAnimeDetails(animeID: Int?): Flow<AnimeDetails> {
         return flow {
-            emit(apiService.getAnimeDetails())
+            emit(apiService.getAnimeDetails(animeID))
         }.catch {
             Log.e("Exception", it.message.toString())
         }

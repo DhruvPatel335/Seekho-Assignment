@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.seekho.assignment.R
 import com.seekho.assignment.adapter.AnimeListAdapter
+import com.seekho.assignment.constants.Constants.ANIME_ID
 import com.seekho.assignment.model.AnimeData
 import com.seekho.assignment.viewmodel.AnimeListViewModel
 import kotlinx.coroutines.launch
@@ -67,7 +68,7 @@ class AnimeListFragment : Fragment(), AnimeListAdapter.OnAnimeClickListener {
     override fun onAnimeClick(animeData: AnimeData) {
         val bundle = bundleOf()
         Log.d("AnimeID", animeData.malId.toString())
-        bundle.putInt("AnimeId", animeData.malId!!)
+        bundle.putInt(ANIME_ID, animeData.malId!!)
         findNavController().navigate(R.id.action_animeListFragment_to_animeDetailFragment, bundle)
     }
 }
